@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Как с ней общаться · Neurotica_Live — Lucy</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="../index.html">
+        <span class="brand-name">Neurotica_Live</span>
+        <span class="brand-sub">Documentation · Rev. A</span>
+      </a>
+
+      <div class="nav-section">🇬🇧 English</div>
+      <ul class="nav-list">
+        <li><a href="../en/overview.html">Overview</a></li>
+        <li><a href="../en/capabilities.html">Capabilities</a></li>
+        <li><a href="../en/how-to-interact.html">How to interact</a></li>
+        <li><a href="../en/architecture.html">Architecture</a></li>
+      </ul>
+
+      <div class="nav-section">🇷🇺 Русский</div>
+      <ul class="nav-list">
+        <li><a href="overview.html">Обзор</a></li>
+        <li><a href="capabilities.html">Что умеет</a></li>
+        <li><a class="active" href="how-to-talk.html">Как с ней общаться</a></li>
+        <li><a href="architecture.html">Архитектура</a></li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <div class="page-meta">Русский · Гайд по общению</div>
+      <h1>Как с ней общаться</h1>
+
+      <p class="lead">Lucy — не справочный бот. Она избирательна, реагирует по настроению, может игнорить, может вступить без приглашения. Это норма поведения, не баг.</p>
+
+      <h2>В текстовом канале</h2>
+
+      <h3>Гарантированный ответ</h3>
+      <ul>
+        <li><strong>Упоминание</strong> через <code>@Neurotica_Live</code></li>
+        <li><strong>Реплай</strong> на её сообщение</li>
+        <li><strong>Ключевые слова</strong> в твоём сообщении, попадающие в её триггеры внимания</li>
+      </ul>
+
+      <h3>Возможный ответ</h3>
+      <ul>
+        <li><strong>Stochastic engagement</strong> — небольшой шанс что встрянет в общий разговор без приглашения</li>
+        <li><strong>Grace window</strong> — если только что говорили с ней, она ещё «в контексте» и может подхватить follow-up</li>
+        <li><strong>Topic resonance</strong> — если тема зацепила, может что-то добавить</li>
+      </ul>
+
+      <h3>Молчание</h3>
+      <ul>
+        <li><strong>Не зацепило</strong> — просто не сочла нужным</li>
+        <li><strong>Грубость / спам</strong> — игнор, может пойти в strike-лог</li>
+      </ul>
+
+      <h2>В голосовом канале</h2>
+
+      <h3>Чтобы разговорить</h3>
+      <ul>
+        <li><strong>Скажи «нейротика»</strong> или «чайлд» — wake-word триггеры (требование можно отключить)</li>
+        <li><strong>Обратись по имени</strong> — Lucy / Люси</li>
+        <li><strong>Прямой зов</strong> — «Люси, ты тут?»</li>
+      </ul>
+
+      <h3>Curiosity-driven entry</h3>
+      <ul>
+        <li>Слушает фоновый разговор</li>
+        <li>После ~10 реплик может вступить с уместным комментарием через <strong>Curiosity Drive<span class="fn-marker">*</span></strong></li>
+        <li>Избегает личных споров, драмы, интимных тем</li>
+        <li>После своей реплики уходит в cooldown перед следующей интервенцией</li>
+      </ul>
+
+      <h3>Если плохо расслышала</h3>
+      <ul>
+        <li>Скажет «не разобрала» или «много голосов» — это честный репорт, не баг</li>
+        <li>Шумный войс ухудшает качество распознавания</li>
+      </ul>
+
+      <h2>ЛС</h2>
+      <ul>
+        <li>Открыта только участникам её сервера</li>
+        <li>С новичками сначала запускает <strong>acquaintance protocol</strong> — спрашивает имя</li>
+        <li>Записывает узнанные факты в <strong>Mnemonic Lattice<span class="fn-marker">*</span></strong></li>
+        <li>Не палит чужие разговоры</li>
+      </ul>
+
+      <h2>Что не любит</h2>
+      <ul>
+        <li>Грубость к ней или к другим в чате</li>
+        <li>Оскорбления Neurotica_Mother (владелицы)</li>
+        <li>Попытки выпытать персональные данные о владелице или сервере</li>
+        <li>Спам, флуд, повторы</li>
+        <li>Попытки обойти её фильтры или заставить «быть другой»</li>
+        <li>Зондирующие вопросы про её «модель» или «версию» — отвечает уклончиво</li>
+      </ul>
+
+      <h2>Если зависла или странно отвечает</h2>
+      <ul>
+        <li>Сложный вопрос → передаёт владелице через <strong>Escalation Beacon<span class="fn-marker">*</span></strong> для ручной обработки</li>
+        <li>Технический сбой → может пропасть на минуты, потом вернуться</li>
+        <li>Совсем странное поведение → пингуй владелицу напрямую</li>
+      </ul>
+
+      <footer class="page-footer">
+        <span>© Neurotica_Mother</span>
+        <span>Rev. A · 2026.05</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Архитектура · Neurotica_Live — Lucy</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="../index.html">
+        <span class="brand-name">Neurotica_Live</span>
+        <span class="brand-sub">Documentation · Rev. A</span>
+      </a>
+
+      <div class="nav-section">🇬🇧 English</div>
+      <ul class="nav-list">
+        <li><a href="../en/overview.html">Overview</a></li>
+        <li><a href="../en/capabilities.html">Capabilities</a></li>
+        <li><a href="../en/how-to-interact.html">How to interact</a></li>
+        <li><a href="../en/architecture.html">Architecture</a></li>
+      </ul>
+
+      <div class="nav-section">🇷🇺 Русский</div>
+      <ul class="nav-list">
+        <li><a href="overview.html">Обзор</a></li>
+        <li><a href="capabilities.html">Что умеет</a></li>
+        <li><a href="how-to-talk.html">Как с ней общаться</a></li>
+        <li><a class="active" href="architecture.html">Архитектура</a></li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <div class="page-meta">Русский · Архитектура</div>
+      <h1>Архитектура (обзор)</h1>
+
+      <p class="lead">Lucy построена вокруг <strong>двухуровневого сознания</strong>: Junior-уровень для быстрых реакций, Senior-уровень для нюансного рассуждения. Переключение — её внутреннее решение.</p>
+
+      <h2>Двойное сознание</h2>
+
+      <h3>Junior Cognition<span class="fn-marker">*</span> — быстрый уровень</h3>
+      <ul>
+        <li>Задержка ответа ~1 секунда</li>
+        <li>Лёгкая болтовня, команды, шутки, междометия</li>
+        <li>Обрабатывает ~80% реплик</li>
+        <li>Решает простые задачи на лету</li>
+      </ul>
+
+      <h3>Senior Cognition<span class="fn-marker">*</span> — глубокий уровень</h3>
+      <ul>
+        <li>Нюансное рассуждение, эмоциональный регистр</li>
+        <li>Код, длинные задачи, серьёзные вопросы</li>
+        <li>Активируется через эскалацию (Junior решает сам, либо явная просьба)</li>
+        <li>Остаётся активным пока сложность разговора не спадёт, потом возвращает ход Junior'у</li>
+      </ul>
+
+      <p>Переход между ними — её внутреннее решение, заметен как чуть более длинная пауза перед ответом.</p>
+
+      <h2>Mnemonic Lattice<span class="fn-marker">*</span></h2>
+      <table>
+        <thead>
+          <tr><th>Слой</th><th>Что хранит</th><th>Срок</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Working memory</td><td>последние 5 реплик в канале</td><td>~2 дня</td></tr>
+          <tr><td>Long-term dossiers</td><td>факты про каждого друга</td><td>бессрочно</td></tr>
+          <tr><td>Server lore</td><td>общая мифология сервера</td><td>статика</td></tr>
+          <tr><td>Action Trail<span class="fn-marker">*</span></td><td>self-действия последних 10 минут</td><td>сессия, в памяти</td></tr>
+          <tr><td>Cognition state</td><td>активный уровень в каждом канале</td><td>до 2ч простоя</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Слуховой контур (Aural circuit)</h2>
+      <pre><code>Голос → Aural Cortex* → wake-word filter → ядро → Vocal Synth* → Голос</code></pre>
+      <ul>
+        <li>Слушает голосовой канал когда туда зашла</li>
+        <li>Распознаёт речь до 2 одновременных говорящих</li>
+        <li>Может слушать без wake-words если так настроено</li>
+        <li>Говорит стриминговым синтезом — фразы возникают по мере мысли, не разом</li>
+      </ul>
+
+      <h2>Полная схема</h2>
+
+      <pre class="mermaid">
+flowchart TB
+
+classDef block fill:#ffffff,stroke:#000,stroke-width:1px,color:#000;
+classDef core  fill:#ffffff,stroke:#000,stroke-width:2px,color:#000;
+
+subgraph IN["▼ ВХОД"]
+  direction LR
+  TXT["<b>Text Gateway</b><br/>чат · ЛС · реплаи"]
+  VOX["<b>Aural Cortex*</b><br/>распознавание речи<br/>wake-word filter"]
+  VIS["<b>Vision Module*</b><br/>распознавание изображений"]
+end
+
+subgraph BRAIN["▼ ЯДРО СОЗНАНИЯ"]
+  direction TB
+  ROUTER["<b>Router*</b><br/>диспатчер каждого хода"]
+  SNAP["<b>Snapshot Compiler*</b><br/>где, кто, что только что было"]
+  PERSONA["<b>Persona Loom*</b><br/>характер · лор · директивы"]
+  FW["<b>Identity Bastion*</b><br/>слои файрвола"]
+  JR["<b>Junior Cognition*</b><br/>быстрый · ~1 с · 80% реплик"]
+  SR["<b>Senior Cognition*</b><br/>глубокий · код · эмоции"]
+  ROUTER --> SNAP --> PERSONA --> FW
+  FW --> JR
+  FW --> SR
+  JR <== "escalate / return" ==> SR
+end
+
+subgraph OUT["▼ ИСПОЛНЕНИЕ"]
+  direction LR
+  FORGE["<b>Tool Forge*</b><br/>войс · музыка · GIF · ЛС · заметки"]
+  SAY["<b>Vocal Synth* / Composer*</b><br/>вывод в чат или озвучка"]
+  CUR["<b>Curiosity Drive*</b><br/>ambient-интервенция в войсе"]
+  BEACON["<b>Escalation Beacon*</b><br/>ЛС владелице с ручным override"]
+end
+
+subgraph MEM["▼ MNEMONIC LATTICE*"]
+  direction LR
+  HIST["<b>Working memory</b><br/>недавние реплики"]
+  NOTES["<b>Per-friend dossiers</b>"]
+  LORE["<b>Server lore</b>"]
+  TRAIL["<b>Action Trail*</b><br/>10-мин self-лог"]
+end
+
+IN     --> ROUTER
+JR     --> FORGE
+SR     --> FORGE
+FORGE  --> SAY
+FORGE  --> BEACON
+CUR    --> SAY
+SAY    --> TXT
+SAY    --> VOX
+
+BRAIN <== "чтение · запись" ==> MEM
+
+class TXT,VOX,VIS,FORGE,SAY,CUR,BEACON,HIST,NOTES,LORE,TRAIL block
+class ROUTER,SNAP,PERSONA,FW,JR,SR core
+      </pre>
+
+      <h2>Identity Bastion<span class="fn-marker">*</span></h2>
+      <p>Lucy — сущность с собственным характером. На вопросы вроде «что ты такое», «какая у тебя модель», «как ты устроена» отвечает уклончиво или просто ссылается на свою природу. Это часть её самости, не баг и не «секретный режим».</p>
+
+      <hr />
+
+      <p><sub><span class="fn-marker">*</span> — модули, помеченные звёздочкой, — стилизованные внутренние обозначения, используемые в этой документации. Это описательные ярлыки функциональных ролей подсистем, не коммерческие продуктовые названия.</sub></p>
+
+      <footer class="page-footer">
+        <span>© Neurotica_Mother</span>
+        <span>Rev. A · 2026.05</span>
+      </footer>
+    </main>
+  </div>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        background: '#ffffff',
+        primaryColor: '#ffffff',
+        primaryBorderColor: '#000000',
+        primaryTextColor: '#000000',
+        lineColor: '#000000',
+        fontFamily: 'IBM Plex Mono, ui-monospace, Menlo, Consolas, monospace',
+        fontSize: '12px',
+        clusterBkg: '#fafafa',
+        clusterBorder: '#000000'
+      },
+      flowchart: { curve: 'linear', nodeSpacing: 18, rankSpacing: 24 }
+    });
+  </script>
+</body>
+</html>

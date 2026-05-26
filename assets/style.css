@@ -1,0 +1,324 @@
+/* Neurotica_Live (Lucy) — documentation site
+   Monochrome technical aesthetic, blueprint-adjacent. */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #fdfdfd;
+  --bg-alt: #f7f7f7;
+  --fg: #111111;
+  --fg-mute: #555555;
+  --fg-faint: #999999;
+  --border: #e2e2e2;
+  --border-strong: #111111;
+  --accent: #000000;
+  --code-bg: #f4f4f4;
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  --sans: 'IBM Plex Sans', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body { min-height: 100vh; }
+
+/* ─── Layout ─────────────────────────────────────────────── */
+
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: var(--bg-alt);
+  border-right: 1px solid var(--border);
+  padding: 28px 22px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.main {
+  padding: 56px 64px 80px;
+  max-width: 880px;
+}
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+  .main { padding: 32px 24px 60px; }
+}
+
+/* ─── Brand ──────────────────────────────────────────────── */
+
+.brand {
+  display: block;
+  text-decoration: none;
+  color: var(--fg);
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 18px;
+}
+.brand-name {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+.brand-sub {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--fg-mute);
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ─── Sidebar nav ────────────────────────────────────────── */
+
+.nav-section {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fg-faint);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 22px 0 8px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-list li { margin: 0; padding: 0; }
+.nav-list a {
+  display: block;
+  padding: 6px 0;
+  color: var(--fg-mute);
+  text-decoration: none;
+  font-size: 14px;
+  border-left: 2px solid transparent;
+  padding-left: 10px;
+  transition: color 0.1s, border-color 0.1s;
+}
+.nav-list a:hover { color: var(--fg); }
+.nav-list a.active {
+  color: var(--fg);
+  border-left-color: var(--border-strong);
+  font-weight: 500;
+}
+
+/* ─── Typography ─────────────────────────────────────────── */
+
+.main h1 {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.main h1 small {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--fg-mute);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.main h2 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 22px;
+  margin: 48px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.main h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 17px;
+  margin: 28px 0 8px;
+}
+
+.main p { margin: 12px 0; color: var(--fg); }
+.main p.lead {
+  font-size: 17px;
+  color: var(--fg-mute);
+  border-left: 3px solid var(--border-strong);
+  padding-left: 16px;
+  margin: 20px 0 28px;
+}
+
+.main a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.main a:hover { background: var(--code-bg); }
+
+.main strong { color: var(--fg); font-weight: 600; }
+
+.main ul, .main ol { padding-left: 22px; margin: 12px 0; }
+.main li { margin: 4px 0; }
+
+.main code {
+  font-family: var(--mono);
+  font-size: 13px;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+.main pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.main pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 13px;
+}
+
+/* ─── Tables ─────────────────────────────────────────────── */
+
+.main table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 14px;
+}
+.main th, .main td {
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+.main th {
+  background: var(--bg-alt);
+  font-weight: 600;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ─── Cards (for landing) ────────────────────────────────── */
+
+.lang-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 40px 0;
+}
+@media (max-width: 700px) { .lang-grid { grid-template-columns: 1fr; } }
+
+.lang-card {
+  display: block;
+  padding: 28px 28px;
+  border: 1px solid var(--border-strong);
+  text-decoration: none;
+  color: var(--fg);
+  background: var(--bg);
+  transition: background 0.1s;
+}
+.lang-card:hover { background: var(--bg-alt); text-decoration: none !important; }
+.lang-card .flag { font-size: 28px; line-height: 1; }
+.lang-card .lang-name {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 18px;
+  margin: 8px 0 4px;
+}
+.lang-card .lang-desc {
+  font-size: 13px;
+  color: var(--fg-mute);
+}
+
+/* ─── Mermaid container ──────────────────────────────────── */
+
+.mermaid {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 24px;
+  margin: 24px 0;
+  border-radius: 4px;
+  text-align: center;
+  overflow-x: auto;
+}
+
+/* ─── Page hero (top of each doc page) ───────────────────── */
+
+.page-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--fg-faint);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* ─── Footer ─────────────────────────────────────────────── */
+
+.page-footer {
+  margin-top: 80px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--fg-mute);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-footer a { color: var(--fg-mute); }
+
+/* ─── Misc ───────────────────────────────────────────────── */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+blockquote {
+  margin: 20px 0;
+  padding: 12px 18px;
+  border-left: 3px solid var(--border-strong);
+  background: var(--bg-alt);
+  font-style: italic;
+  color: var(--fg-mute);
+}
+
+sub { font-size: 11px; color: var(--fg-faint); }
+
+/* asterisk footnote marker */
+.fn-marker {
+  font-family: var(--mono);
+  font-size: 11px;
+  vertical-align: super;
+}
