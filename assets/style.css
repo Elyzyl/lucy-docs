@@ -259,16 +259,27 @@ body { min-height: 100vh; }
   color: var(--fg-mute);
 }
 
-/* ─── Mermaid container ──────────────────────────────────── */
+/* ─── Architecture figure ────────────────────────────────── */
 
-.mermaid {
+.arch-figure {
+  margin: 28px 0 32px;
+  padding: 0;
+}
+.arch-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-strong);
   background: var(--bg);
-  border: 1px solid var(--border);
-  padding: 24px;
-  margin: 24px 0;
-  border-radius: 4px;
-  text-align: center;
-  overflow-x: auto;
+}
+.arch-figure figcaption {
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--fg-mute);
+  line-height: 1.5;
+  padding-left: 12px;
+  border-left: 2px solid var(--border-strong);
 }
 
 /* ─── Page hero (top of each doc page) ───────────────────── */
